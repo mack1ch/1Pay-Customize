@@ -86,11 +86,13 @@ function CornerBrand({
   textColor,
   primaryColor,
   multi,
+  showPlaceholderWhenNoLogo,
 }: {
   logoUrl: string | null;
   textColor: string;
   primaryColor: string;
   multi?: boolean;
+  showPlaceholderWhenNoLogo: boolean;
 }) {
   if (logoUrl) {
     return (
@@ -102,6 +104,18 @@ function CornerBrand({
             ? `${styles.cornerLogo} ${styles.multiCornerLogo}`
             : styles.cornerLogo
         }
+      />
+    );
+  }
+  if (!showPlaceholderWhenNoLogo) {
+    return (
+      <span
+        className={
+          multi
+            ? `${styles.cornerLogoEmpty} ${styles.cornerLogoEmptyMulti}`
+            : styles.cornerLogoEmpty
+        }
+        aria-hidden
       />
     );
   }
@@ -146,6 +160,7 @@ function HeaderBlock({
         logoUrl={logoUrl}
         textColor={textColor}
         primaryColor={primaryColor}
+        showPlaceholderWhenNoLogo={config.logoShowPlaceholder !== false}
       />
     </div>
   );
@@ -250,6 +265,7 @@ function MultiHeaderBlock({
           textColor={MULTI_TEXT}
           primaryColor={primaryColor}
           multi
+          showPlaceholderWhenNoLogo={config.logoShowPlaceholder !== false}
         />
       </div>
       <div className={styles.multiHeaderMeta}>
@@ -315,10 +331,12 @@ function FakeQrDesktop({
   logoUrl,
   primaryColor,
   badgeRadius,
+  showPlaceholderWhenNoLogo,
 }: {
   logoUrl: string | null;
   primaryColor: string;
   badgeRadius: number;
+  showPlaceholderWhenNoLogo: boolean;
 }) {
   const n = QR_DESKTOP_N;
   const mid = (n - 1) / 2;
@@ -348,22 +366,26 @@ function FakeQrDesktop({
       );
     }
   }
+  const showBadge = Boolean(logoUrl) || showPlaceholderWhenNoLogo;
+
   return (
     <div className={styles.qrDesktopWrap}>
       <div className={styles.qrDesktopGrid}>{cells}</div>
-      <div
-        className={styles.qrDesktopBadge}
-        style={{ borderRadius: `${badgeRadius}px` }}
-      >
-        {logoUrl ? (
-          <img src={logoUrl} alt="" className={styles.qrDesktopBadgeImg} />
-        ) : (
-          <span className={styles.qrDesktopBadgeMark} aria-hidden>
-            <span style={{ color: MULTI_TEXT }}>1</span>
-            <span style={{ color: primaryColor }}>P</span>
-          </span>
-        )}
-      </div>
+      {showBadge ? (
+        <div
+          className={styles.qrDesktopBadge}
+          style={{ borderRadius: `${badgeRadius}px` }}
+        >
+          {logoUrl ? (
+            <img src={logoUrl} alt="" className={styles.qrDesktopBadgeImg} />
+          ) : (
+            <span className={styles.qrDesktopBadgeMark} aria-hidden>
+              <span style={{ color: MULTI_TEXT }}>1</span>
+              <span style={{ color: primaryColor }}>P</span>
+            </span>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }
@@ -586,6 +608,9 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
                     logoUrl={logoDataUrl}
                     primaryColor={primary}
                     badgeRadius={rSbpDesk.rQrBadge}
+                    showPlaceholderWhenNoLogo={
+                      config.logoShowPlaceholder !== false
+                    }
                   />
                   <div className={styles.sbpDesktopQrTextCol}>
                     <div className={styles.sbpDesktopQrCopy}>

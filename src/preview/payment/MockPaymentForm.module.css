@@ -122,6 +122,20 @@
   object-fit: contain;
 }
 
+/* Резерв под логотип без картинки и без заглушки 1P */
+.cornerLogoEmpty {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  min-width: 36px;
+  min-height: 28px;
+}
+
+.cornerLogoEmptyMulti {
+  min-width: 32px;
+  min-height: 26px;
+}
+
 .singleStack,
 .multiStack {
   width: 100%;

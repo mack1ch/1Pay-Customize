@@ -1,5 +1,14 @@
 export type PaymentFormType = 'card' | 'sbp' | 'multi';
 
+/** Порядок для перебора всех вариантов в провайдере */
+export const PAYMENT_FORM_TYPES: readonly PaymentFormType[] = [
+  'card',
+  'sbp',
+  'multi',
+] as const;
+
+export type FormConfigsByType = Record<PaymentFormType, FormCustomizationConfig>;
+
 export interface MultiformMethods {
   sbpQuick: boolean;
   payQuick: boolean;
@@ -23,6 +32,8 @@ export interface FormCustomizationConfig {
   /** Базовое скругление внешнего контейнера формы, 0…16 px (внутренние — по формуле ТЗ) */
   borderRadius: number;
   logoDataUrl: string | null;
+  /** Если нет файла: true — заглушка 1P, false — пустое место */
+  logoShowPlaceholder: boolean;
   multiformMethods: MultiformMethods;
 }
 

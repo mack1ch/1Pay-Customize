@@ -2,8 +2,18 @@ import { useRef } from 'react';
 import { validateLogoFile } from '../../domain/validation';
 import { clampFormBaseRadius, FORM_RADIUS_MAX } from '../../domain/formRadiusModel';
 import { FONT_OPTIONS } from '../../domain/fonts';
+import {
+  PAYMENT_FORM_TYPES,
+  type PaymentFormType,
+} from '../../types/customization';
 import { useCustomization } from '../../state/useCustomization';
 import styles from './BrandPanel.module.css';
+
+const FORM_VARIANT_LABEL: Record<PaymentFormType, string> = {
+  card: 'Карта',
+  sbp: 'СБП',
+  multi: 'Мультиформа',
+};
 
 function normalizePickerHex(v: string) {
   if (v.startsWith('#') && v.length >= 4) return v.slice(0, 7);
@@ -122,6 +132,8 @@ function GradientBar({
 export function BrandPanel() {
   const {
     draft,
+    editingFormType,
+    setEditingFormType,
     updateDraft,
     setLogo,
     setLogoError,
@@ -158,6 +170,34 @@ export function BrandPanel() {
   return (
     <div className={styles.root}>
       <div className={styles.card}>
+        <h2 className={styles.cardTitle}>Вариант формы</h2>
+        <p className={styles.cardLead}>
+          Отдельные настройки для оплаты картой, СБП и мультиформы. Предпросмотр и
+          «Открыть форму» показывают выбранный вариант.
+        </p>
+        <div
+          className={styles.formVariantToggle}
+          role="group"
+          aria-label="Какую форму настраивать"
+        >
+          {PAYMENT_FORM_TYPES.map((t) => (
+            <button
+              key={t}
+              type="button"
+              className={
+                editingFormType === t
+                  ? `${styles.formVariantBtn} ${styles.formVariantBtnActive}`
+                  : styles.formVariantBtn
+              }
+              onClick={() => setEditingFormType(t)}
+            >
+              {FORM_VARIANT_LABEL[t]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className={styles.card}>
         <h2 className={styles.cardTitle}>Основное</h2>
 
         <div className={styles.row2}>
@@ -182,17 +222,23 @@ export function BrandPanel() {
                 type="button"
                 className={styles.logoPick}
                 onClick={() => fileRef.current?.click()}
-                aria-label={draft.logoDataUrl ? 'Заменить логотип' : 'Загрузить логотип'}
+                aria-label={
+                  draft.logoDataUrl
+                    ? 'Заменить логотип'
+                    : 'Загрузить логотип'
+                }
               >
                 {draft.logoDataUrl ? (
                   <img src={draft.logoDataUrl} alt="" className={styles.logoPreview} />
-                ) : (
+                ) : draft.logoShowPlaceholder !== false ? (
                   <div className={styles.logoDefaultWrap} aria-hidden>
                     <span className={styles.logoDefaultMark}>
                       <span style={{ color: draft.textColor }}>1</span>
                       <span style={{ color: draft.primaryColor }}>P</span>
                     </span>
                   </div>
+                ) : (
+                  <div className={styles.logoEmptyWrap} aria-hidden />
                 )}
               </button>
               {draft.logoDataUrl ? (
@@ -200,13 +246,32 @@ export function BrandPanel() {
                   type="button"
                   className={styles.removeBtn}
                   onClick={() => {
-                    setLogo(null);
+                    updateDraft({
+                      logoDataUrl: null,
+                      logoShowPlaceholder: false,
+                    });
                     setLogoError(null);
                   }}
                 >
                   Удалить
                 </button>
-              ) : null}
+              ) : draft.logoShowPlaceholder === false ? (
+                <button
+                  type="button"
+                  className={styles.removeBtn}
+                  onClick={() => updateDraft({ logoShowPlaceholder: true })}
+                >
+                  Показать 1P
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  className={styles.removeBtn}
+                  onClick={() => updateDraft({ logoShowPlaceholder: false })}
+                >
+                  Без логотипа
+                </button>
+              )}
               <input
                 ref={fileRef}
                 type="file"
@@ -216,7 +281,8 @@ export function BrandPanel() {
               />
             </div>
             <p className={styles.help}>
-              Без файла в форме показывается знак 1P. PNG, JPG, SVG до 1 МБ. Рекомендуемый размер 36×150px
+              «Удалить» убирает файл и место под логотип остаётся пустым. «Показать 1P» — снова заглушка.
+              PNG, JPG, SVG до 1 МБ, рекомендуемый размер 36×150px.
             </p>
             {logoError ? <span className={styles.fieldError}>{logoError}</span> : null}
           </div>

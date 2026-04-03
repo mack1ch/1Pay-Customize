@@ -2,15 +2,15 @@ import { useCustomization } from '../../state/useCustomization';
 import styles from './Panels.module.css';
 
 export function MethodsPanel() {
-  const { draft, updateDraft } = useCustomization();
+  const { draft, updateDraft, editingFormType } = useCustomization();
 
-  if (draft.formType !== 'multi') {
+  if (editingFormType !== "multi") {
     return (
       <div className={`${styles.panelCard} ${styles.placeholder}`}>
         <p className={styles.phTitle}>Методы оплаты</p>
         <p className={styles.phText}>
-          Переключение блоков быстрой оплаты доступно для типа формы «Мультиформа».
-          Выберите «Мультиформа» в разделе «Бренд».
+          Переключение блоков быстрой оплаты доступно при настройке варианта
+          «Мультиформа» (переключатель вверху раздела «Бренд»).
         </p>
       </div>
     );

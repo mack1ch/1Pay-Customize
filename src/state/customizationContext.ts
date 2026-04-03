@@ -3,10 +3,14 @@ import type {
   FieldErrors,
   FormCustomizationConfig,
   PaymentFormType,
-} from '../types/customization';
+} from "../types/customization";
 import type { PreviewTheme } from './previewTheme';
 
 export interface CustomizationContextValue {
+  /** Какую форму сейчас редактируют (карта / СБП / мульти) */
+  editingFormType: PaymentFormType;
+  setEditingFormType: (t: PaymentFormType) => void;
+  /** Черновик и сохранённое состояние для выбранного типа */
   draft: FormCustomizationConfig;
   saved: FormCustomizationConfig;
   previewTheme: PreviewTheme;
@@ -18,6 +22,7 @@ export interface CustomizationContextValue {
   toast: string | null;
   setToast: (msg: string | null) => void;
   updateDraft: (patch: Partial<FormCustomizationConfig>) => void;
+  /** @deprecated Используйте setEditingFormType */
   setFormType: (t: PaymentFormType) => void;
   setLogo: (dataUrl: string | null) => void;
   setLogoError: (msg: string | null) => void;
