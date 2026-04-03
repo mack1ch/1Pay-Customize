@@ -79,24 +79,33 @@
   text-decoration: underline;
 }
 
-.canvas {
+/* Оболочка: фон + круглешки привязаны к видимой области, не к прокручиваемому потоку */
+.canvasShell {
   position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
   min-height: 0;
+  border-radius: 8px;
+  border: 1px solid var(--lk-border);
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.canvasScroll {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  border-radius: 8px;
-  border: 1px solid var(--lk-border);
-  /* backgroundColor задаётся из previewTheme.effectiveBgColor — цвет страницы формы */
-  box-sizing: border-box;
 }
 
 .previewContent {
-  position: relative;
-  z-index: 1;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -104,6 +113,6 @@
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
-  min-height: 0;
+  min-height: min-content;
   padding: 28px 24px 32px;
 }

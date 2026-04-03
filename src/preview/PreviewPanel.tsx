@@ -55,7 +55,7 @@ export function PreviewPanel() {
         </button>
       </div>
       <div
-        className={styles.canvas}
+        className={styles.canvasShell}
         style={{ backgroundColor: previewTheme.effectiveBgColor }}
       >
         <PageGradientBlobs
@@ -63,13 +63,15 @@ export function PreviewPanel() {
           gradientStart={previewTheme.effectiveGradientStart}
           gradientEnd={previewTheme.effectiveGradientEnd}
         />
-        <div className={styles.previewContent}>
-          <MockPaymentForm
-            theme={previewTheme}
-            config={draft}
-            device={device}
-            embedded
-          />
+        <div className={styles.canvasScroll}>
+          <div className={styles.previewContent}>
+            <MockPaymentForm
+              theme={previewTheme}
+              config={draft}
+              device={device}
+              embedded
+            />
+          </div>
         </div>
       </div>
     </div>
