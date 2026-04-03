@@ -80,6 +80,7 @@
 }
 
 .canvas {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -94,6 +95,8 @@
 }
 
 .previewContent {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex: 1;
   flex-direction: column;

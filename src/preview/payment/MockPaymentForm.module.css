@@ -849,31 +849,6 @@
   padding: 16px 16px 28px;
 }
 
-.sbpDesktopPageBlobs {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.sbpDesktopBlob {
-  position: absolute;
-  width: 572px;
-  height: 572px;
-  border-radius: 50%;
-  background: rgba(38, 173, 80, 0.2);
-  filter: blur(120px);
-  left: -286px;
-  bottom: -120px;
-}
-
-.sbpDesktopBlobTr {
-  left: auto;
-  right: -286px;
-  bottom: auto;
-  top: -120px;
-}
-
 .sbpDesktopColumn {
   position: relative;
   z-index: 1;
@@ -902,7 +877,6 @@
   width: 234px;
   height: 234px;
   border-radius: 50%;
-  background: rgba(38, 173, 80, 0.13);
   filter: blur(88px);
 }
 

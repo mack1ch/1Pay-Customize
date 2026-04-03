@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { readPreviewHandoff } from '../domain/previewPayload';
 import { buildPreviewTheme } from '../state/previewTheme';
+import { PageGradientBlobs } from '../preview/PageGradientBlobs';
 import { MockPaymentForm } from '../preview/payment/MockPaymentForm';
 import styles from './OpenFormPage.module.css';
 
@@ -52,6 +53,11 @@ export function OpenFormPage() {
 
   return (
     <div className={styles.page} style={{ backgroundColor: pageBg }}>
+      <PageGradientBlobs
+        variant="viewport"
+        gradientStart={theme.effectiveGradientStart}
+        gradientEnd={theme.effectiveGradientEnd}
+      />
       <div className={styles.banner}>
         <span>Предпросмотр с текущими настройками (включая несохранённые)</span>
         <Link to="/" className={styles.back}>

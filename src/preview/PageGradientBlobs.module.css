@@ -1,0 +1,34 @@
+/* Два круга 572×572, blur ~233px, rgba(..., 0.2) — углы всей области (вьюпорт или canvas) */
+.layerViewport {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.layerCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  width: 572px;
+  height: 572px;
+  border-radius: 50%;
+  filter: blur(232.55px);
+}
+
+.blobBl {
+  left: -286px;
+  bottom: -286px;
+}
+
+.blobTr {
+  right: -286px;
+  top: -286px;
+}

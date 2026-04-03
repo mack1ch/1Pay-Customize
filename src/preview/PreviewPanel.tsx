@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { writePreviewTransfer } from '../domain/previewPayload';
 import { useCustomization } from '../state/useCustomization';
+import { PageGradientBlobs } from './PageGradientBlobs';
 import { MockPaymentForm } from './payment/MockPaymentForm';
 import { readPreviewDevice, writePreviewDevice, type PreviewDevice } from './previewDevice';
 import styles from './PreviewPanel.module.css';
@@ -57,6 +58,11 @@ export function PreviewPanel() {
         className={styles.canvas}
         style={{ backgroundColor: previewTheme.effectiveBgColor }}
       >
+        <PageGradientBlobs
+          variant="canvas"
+          gradientStart={previewTheme.effectiveGradientStart}
+          gradientEnd={previewTheme.effectiveGradientEnd}
+        />
         <div className={styles.previewContent}>
           <MockPaymentForm
             theme={previewTheme}

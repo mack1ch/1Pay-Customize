@@ -7,6 +7,7 @@ import {
   D_SINGLE_CARD_CONTENT_PAD,
 } from "../../domain/formRadiusModel";
 import { fontStackFor } from "../../domain/fonts";
+import { rgbaFromHex } from "../../domain/colorUtils";
 import { defaultFormConfig, mockPaymentContext } from "../../domain/defaults";
 import { resolveButtonLabel } from "../../domain/buttonLabel";
 import type { PreviewTheme } from "../../state/previewTheme";
@@ -395,7 +396,6 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
     effectivePrimaryColor: primary,
     effectiveHoverColor: hover,
     effectiveActiveColor: active,
-    effectiveBgColor: pageBg,
     effectiveGradientStart: g0,
     effectiveGradientEnd: g1,
     fontFamily,
@@ -427,15 +427,6 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
   } as CSSProperties;
 
   const isMobile = device === "mobile";
-  /** Нижний слой — сплошной цвет страницы (bgColor); сверху — мягкие пятна градиента */
-  const gradBg = {
-    background: `
-      radial-gradient(ellipse 120% 100% at 50% -15%, ${g0} 0%, transparent 52%),
-      radial-gradient(ellipse 85% 75% at 100% 85%, ${g1} 0%, transparent 48%),
-      radial-gradient(ellipse 85% 75% at 0% 85%, ${g0} 0%, transparent 48%),
-      ${pageBg}
-    `,
-  };
 
   if (config.formType === "sbp") {
     if (isMobile) {
@@ -463,7 +454,7 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
               .filter(Boolean)
               .join(" ")}
             style={{
-              background: pageBg,
+              backgroundColor: "transparent",
               borderRadius: `${rStack.rForm}px`,
             }}
           >
@@ -564,16 +555,10 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
             .filter(Boolean)
             .join(" ")}
           style={{
-            background: pageBg,
+            backgroundColor: "transparent",
             borderRadius: `${rSbpDesk.rForm}px`,
           }}
         >
-          <div className={styles.sbpDesktopPageBlobs} aria-hidden>
-            <div className={styles.sbpDesktopBlob} />
-            <div
-              className={`${styles.sbpDesktopBlob} ${styles.sbpDesktopBlobTr}`}
-            />
-          </div>
           <div className={styles.sbpDesktopColumn}>
             <MultiBackLink />
             <div
@@ -587,9 +572,11 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
               <div className={styles.sbpDesktopCardBlobs} aria-hidden>
                 <div
                   className={`${styles.sbpDesktopBlobInner} ${styles.sbpDesktopBlobInnerBl}`}
+                  style={{ background: rgbaFromHex(g0, 0.14) }}
                 />
                 <div
                   className={`${styles.sbpDesktopBlobInner} ${styles.sbpDesktopBlobInnerTr}`}
+                  style={{ background: rgbaFromHex(g1, 0.14) }}
                 />
               </div>
               <div className={styles.sbpDesktopCardContent}>
@@ -636,7 +623,10 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
 
     return (
       <div className={viewportCls(embedded, isMobile)} style={cardWrapStyle}>
-        <div className={gradCls(embedded)} style={gradBg}>
+        <div
+          className={gradCls(embedded)}
+          style={{ backgroundColor: "transparent" }}
+        >
           <div className={styles.singleStack}>
             <BackLink color={`${text}88`} />
             <div
@@ -797,11 +787,10 @@ export function MockPaymentForm({ theme, config, device, embedded }: Props) {
         className={[gradCls(embedded), styles.multiGradCanvas]
           .filter(Boolean)
           .join(" ")}
-        style={
-          embedded
-            ? { ...gradBg, borderRadius: `${rStack.rForm}px` }
-            : { background: pageBg, borderRadius: `${rStack.rForm}px` }
-        }
+        style={{
+          backgroundColor: "transparent",
+          borderRadius: `${rStack.rForm}px`,
+        }}
       >
         <div className={styles.multiStack}>
           <MultiBackLink />
