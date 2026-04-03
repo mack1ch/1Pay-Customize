@@ -1,0 +1,68 @@
+.page {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.formWrap {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background-color: inherit;
+}
+
+/* Корень MockPaymentForm: тянется на ширину/высоту, без просветов при скролле */
+.formWrap > * {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.back {
+  color: #93c5fd;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.fallback {
+  max-width: 520px;
+  margin: 80px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.muted {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.muted a {
+  color: var(--lk-blue);
+  font-weight: 600;
+}

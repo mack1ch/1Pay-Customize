@@ -1,0 +1,1266 @@
+.viewport {
+  width: 100%;
+  min-height: 420px;
+}
+
+.viewport.embedded {
+  min-height: 0;
+}
+
+.viewportMobile {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Встроенное превью: на всю область canvas, скролл у .canvas */
+.embedded {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-width: none;
+}
+
+/* Встроенное превью + Mobile: фон на всю ширину canvas, форма — узкая колонка по центру */
+.embedded.viewportMobile {
+  align-self: stretch;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+.viewport.embedded.viewportMobile .gradCanvas.embeddedGrad,
+.viewport.embedded.viewportMobile .multiGradCanvas.embeddedGrad,
+.viewport.embedded.viewportMobile .sbpMobileGrad.embeddedGrad {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Колонка с карточками: не на всю ширину фона */
+.viewport.embedded.viewportMobile .singleStack,
+.viewport.embedded.viewportMobile .multiStack,
+.viewport.embedded.viewportMobile .sbpMobileColumn {
+  width: 100%;
+  max-width: min(336px, calc(100% - 32px));
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.gradCanvas {
+  min-height: 480px;
+  border-radius: 12px;
+  padding: 16px 16px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.embeddedGrad {
+  flex: 1;
+  align-items: stretch;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  padding: 12px 12px 16px;
+}
+
+.viewport.embedded .gradCanvas.embeddedGrad {
+  border-radius: 0;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0 0 12px;
+  font-size: 13px;
+  cursor: default;
+  font-weight: 500;
+}
+
+.backChevron {
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.55;
+  margin-right: 2px;
+}
+
+.oneP {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.innerDivider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 18px 0 16px;
+}
+
+.qrLogo {
+  max-width: 36px;
+  max-height: 36px;
+  object-fit: contain;
+}
+
+.logoSlot {
+  min-width: 40px;
+  min-height: 28px;
+  display: inline-block;
+}
+
+.cornerLogo {
+  max-height: 36px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.singleStack,
+.multiStack {
+  width: 100%;
+  max-width: 440px;
+}
+
+.viewport.embedded .singleStack,
+.viewport.embedded .multiStack {
+  max-width: none;
+}
+
+/* «Открыть форму»: десктоп — колонка карточной формы 465px, как мульти/СБП */
+.viewport:not(.embedded):not(.viewportMobile) .singleStack {
+  max-width: 465px;
+}
+
+/* —— Мультиформа (макет ПК: колонка 465px, фон #F0F0F0) —— */
+.multiViewport {
+  width: 100%;
+  max-width: 465px;
+  margin: 0 auto;
+}
+
+.multiViewport.viewportMobile {
+  max-width: 360px;
+}
+
+/* «Открыть форму»: мультиформа 465px, даже если в редакторе был выбран Mobile */
+.multiViewport:not(.embedded).viewportMobile {
+  max-width: 465px;
+  width: min(465px, 100%);
+}
+
+.multiViewport .multiStack {
+  max-width: 465px;
+}
+
+.viewport.embedded.multiViewport,
+.multiViewport.embedded {
+  max-width: none;
+  margin: 0;
+  width: 100%;
+}
+
+.viewport.embedded.multiViewport.viewportMobile,
+.multiViewport.embedded.viewportMobile {
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+}
+
+.viewport.embedded.multiViewport .multiStack,
+.multiViewport.embedded .multiStack {
+  max-width: none;
+}
+
+.multiGradCanvas.embeddedGrad {
+  padding: 16px 16px 24px;
+}
+
+/* В редакторе: узкий «телефон» по центру, вокруг — фон области предпросмотра */
+.viewport.embedded.multiViewport.viewportMobile .multiGradCanvas.embeddedGrad {
+  width: 100%;
+  max-width: min(360px, calc(100% - 40px));
+  margin-inline: auto;
+  /* border-radius задаётся из --form-radius / inline (R) */
+  box-sizing: border-box;
+}
+
+.multiStack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.multiCardChain {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.multiPanel {
+  width: 100%;
+}
+
+.multiPadHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+}
+
+.multiPadQuick {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+}
+
+.multiPadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px;
+}
+
+.multiHeaderInner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.multiHeaderTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.multiAmount {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 31px;
+  color: #222222;
+}
+
+.multiHeaderMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.multiMerchant {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #222222;
+}
+
+.multiDesc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #757575;
+}
+
+.multiCornerLogo {
+  max-height: 28px;
+  max-width: 120px;
+}
+
+.onePMulti {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.multiBack {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #757575;
+  cursor: default;
+}
+
+.multiBackChevron {
+  font-size: 16px;
+  line-height: 1;
+  color: #757575;
+}
+
+.multiSectionTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #222222;
+}
+
+.multiQuickCol {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.multiSbpBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 51px;
+  padding: 0 24px;
+  gap: 12px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: default;
+}
+
+.multiPayQuick {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 51px;
+  padding: 0 24px;
+  gap: 12px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: default;
+}
+
+.multiPayQuick:hover {
+  filter: brightness(1.07);
+}
+
+.multiPayQuick:active {
+  filter: brightness(0.92);
+}
+
+.multiFormFields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.multiFieldsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.multiField {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.multiLabel {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #757575;
+}
+
+.multiInputRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  min-height: 46px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.multiInputText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #222222;
+  font-variant-numeric: tabular-nums;
+}
+
+.multiRow2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.multiExpCombined {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  min-height: 51px;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+}
+
+.multiExpSlash {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #757575;
+}
+
+.multiQMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  border-radius: 16px;
+  background: #ffffff;
+  font-size: 10.9474px;
+  font-weight: 500;
+  line-height: 13px;
+  color: #adadad;
+}
+
+.multiCtaBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.multiSubmitBtn {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 24px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.multiSubmitBtn:hover {
+  background: var(--btn-hover) !important;
+}
+
+.multiSubmitBtn:active {
+  background: var(--btn-active) !important;
+}
+
+.multiFormBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.multiLegal {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.multiLegalMuted {
+  color: #757575;
+}
+
+.multiHeaderFooter,
+.multiQuickFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.multiFooterRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.multiPci {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.multiLockWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5.1px;
+  border-radius: 5.1px;
+  background: rgba(220, 233, 224, 0.3);
+  flex-shrink: 0;
+}
+
+.multiFooterText {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #757575;
+}
+
+.quickCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.quickCol .sbpBtn,
+.quickCol .payQuick {
+  flex: none;
+  width: 100%;
+  min-width: 0;
+}
+
+.multiInner {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.rowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.amount {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.amountMd {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.merchant {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.merchantSm {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.sub {
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.cardHeadRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.blockTitle {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.quickRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sbpBtn {
+  flex: 1;
+  min-width: 120px;
+  height: 52px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: default;
+}
+
+.sbpMark {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: conic-gradient(
+    from 180deg,
+    #e53935,
+    #fbc02d,
+    #43a047,
+    #1e88e5,
+    #8e24aa,
+    #e53935
+  );
+}
+
+.payQuick {
+  flex: 1;
+  min-width: 120px;
+  height: 52px;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: default;
+}
+
+.payQuick:hover {
+  filter: brightness(1.07);
+}
+
+.payQuick:active {
+  filter: brightness(0.92);
+}
+
+.payIcon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.payIcon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: translate(-45%, -55%) rotate(45deg);
+}
+
+.fieldBlock {
+  margin-bottom: 14px;
+}
+
+.inLabel {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.inputLike {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.inputMini {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  font-size: 14px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.expRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.slash {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mir {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.qMark {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payBtn {
+  width: 100%;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 16px;
+  margin-top: 8px;
+  cursor: default;
+}
+
+.payBtn:hover {
+  background: var(--btn-hover) !important;
+}
+
+.payBtn:active {
+  background: var(--btn-active) !important;
+}
+
+.legal {
+  text-align: center;
+  font-size: 12px;
+  margin: 16px 0 10px;
+  line-height: 1.45;
+}
+
+.footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  flex-wrap: wrap;
+}
+
+.pci {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 70%;
+}
+
+/* СБП / SberPay — десктоп, QR (колонка 465px, фон #F0F0F0) */
+.sbpDesktopViewport {
+  width: 100%;
+  max-width: 465px;
+  margin: 0 auto;
+}
+
+.viewport.embedded.sbpDesktopViewport,
+.sbpDesktopViewport.embedded {
+  max-width: none;
+  margin: 0;
+}
+
+.viewport.embedded .sbpDesktopCard {
+  width: 100%;
+  max-width: none;
+}
+
+.viewport.embedded .sbpDesktopHeaderRow {
+  max-width: none;
+}
+
+.viewport.embedded .sbpDesktopQrTextCol {
+  width: 100%;
+  max-width: none;
+}
+
+.viewport.embedded .sbpDesktopDivider {
+  width: 100%;
+  max-width: none;
+}
+
+.sbpDesktopPage {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.gradCanvas.sbpDesktopPage.embeddedGrad {
+  padding: 16px 16px 28px;
+}
+
+.sbpDesktopPageBlobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sbpDesktopBlob {
+  position: absolute;
+  width: 572px;
+  height: 572px;
+  border-radius: 50%;
+  background: rgba(38, 173, 80, 0.2);
+  filter: blur(120px);
+  left: -286px;
+  bottom: -120px;
+}
+
+.sbpDesktopBlobTr {
+  left: auto;
+  right: -286px;
+  bottom: auto;
+  top: -120px;
+}
+
+.sbpDesktopColumn {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.sbpDesktopCard {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sbpDesktopCardBlobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sbpDesktopBlobInner {
+  position: absolute;
+  width: 234px;
+  height: 234px;
+  border-radius: 50%;
+  background: rgba(38, 173, 80, 0.13);
+  filter: blur(88px);
+}
+
+.sbpDesktopBlobInnerBl {
+  left: -117px;
+  bottom: -60px;
+}
+
+.sbpDesktopBlobInnerTr {
+  left: auto;
+  right: -117px;
+  bottom: auto;
+  top: -117px;
+}
+
+.sbpDesktopCardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  padding: 32px;
+}
+
+.sbpDesktopHeaderRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  max-width: 401px;
+}
+
+.sbpDesktopHeaderCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sbpDesktopAmount {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 31px;
+  color: #222222;
+}
+
+.sbpDesktopMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.sbpDesktopMerchant {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #222222;
+}
+
+.sbpDesktopDesc {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #757575;
+}
+
+.sbpDesktopQrStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.sbpDesktopQrTextCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 328px;
+}
+
+.sbpDesktopQrCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
+
+.sbpDesktopQrTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  color: #222222;
+  text-align: center;
+}
+
+.sbpDesktopQrSub {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #222222;
+  text-align: center;
+}
+
+.qrDesktopWrap {
+  position: relative;
+  width: 299px;
+  height: 299px;
+  flex-shrink: 0;
+}
+
+.qrDesktopGrid {
+  display: grid;
+  grid-template-columns: repeat(29, 1fr);
+  grid-template-rows: repeat(29, 1fr);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.qrDesktopCell {
+  min-width: 0;
+  min-height: 0;
+}
+
+.qrDesktopBadge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 73px;
+  height: 73px;
+  padding: 19px 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
+  transform: translate(-50%, -50%);
+}
+
+.qrDesktopBadgeImg {
+  max-width: 35px;
+  max-height: 33px;
+  object-fit: contain;
+}
+
+.qrDesktopBadgeMark {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.sbpDesktopDivider {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 334px;
+  height: 1px;
+  margin: 0 auto;
+  background: rgba(21, 21, 21, 0.1);
+}
+
+/* СБП — мобильный экран выбора банка (макет ~390px, фон #F0F0F0) */
+.sbpMobileViewport {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.sbpMobileViewport.viewportMobile {
+  max-width: 390px;
+}
+
+.viewport.embedded.sbpMobileViewport,
+.sbpMobileViewport.embedded {
+  max-width: none;
+  margin: 0;
+}
+
+.viewport.embedded.sbpMobileViewport.viewportMobile {
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+}
+
+.sbpMobileGrad.embeddedGrad {
+  padding: 16px 16px 24px;
+}
+
+.sbpMobileColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+}
+
+.sbpMobileCards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.sbpMobileOrderPad {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+}
+
+.sbpMobileBankCard {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.sbpMobileBankInner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  padding: 14px;
+}
+
+.sbpMobileSearch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  min-height: 45px;
+  padding: 7px 15px;
+  background: #f6f6f6;
+}
+
+.sbpMobileSearchIcon {
+  flex-shrink: 0;
+  color: #adadad;
+}
+
+.sbpMobileSearchPlaceholder {
+  font-size: 14.7424px;
+  font-weight: 600;
+  line-height: 23px;
+  color: #adadad;
+}
+
+.sbpMobileList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 120px;
+  max-height: min(420px, 52vh);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sbpMobileBankRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 4px;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 10px;
+  border: none;
+  background: #f6f6f6;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.sbpMobileBankLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sbpMobileBankLogoSlot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 42px;
+  border-radius: 9px;
+  background: #ffffff;
+}
+
+.sbpMobileTGlyph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 29px;
+  height: 32px;
+  border-radius: 6px;
+  background: #ffdd2d;
+}
+
+.sbpMobileTLetter {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: #333333;
+}
+
+.sbpMobileBankName {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: #222222;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sbpMobileRowChevron {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  color: #222222;
+}
+
+.oneCard {
+  overflow: hidden;
+}
+
+/* Нативные стили кнопок (особенно WebKit) перекрывают border-radius */
+.payBtn,
+.multiSbpBtn,
+.multiPayQuick,
+.multiSubmitBtn,
+.sbpMobileBankRow {
+  appearance: none;
+  -webkit-appearance: none;
+}

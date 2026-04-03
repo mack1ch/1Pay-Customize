@@ -1,0 +1,63 @@
+.panelCard {
+  background: #fff;
+  border: 1px solid var(--lk-border);
+  border-radius: 10px;
+  padding: 20px 20px 22px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  margin-top: 16px;
+}
+
+.placeholder {
+  padding: 8px 0 12px;
+}
+
+.phTitle {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.phText {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.55;
+  max-width: 420px;
+}
+
+.sectionTitle {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.hint {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.checkRow input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--lk-blue);
+}
