@@ -10,8 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: var(--editor-space-4);
+  margin-bottom: var(--editor-space-6);
   flex-shrink: 0;
   flex-wrap: nowrap;
 }
@@ -19,34 +19,39 @@
 .headLeft {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--editor-space-4);
   min-width: 0;
 }
 
 .title {
   margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: #1a1a1a;
   flex-shrink: 0;
+  line-height: 1.3;
 }
 
 .toggle {
   display: inline-flex;
   background: #e8ecf2;
-  border-radius: 6px;
-  padding: 2px;
-  gap: 0;
+  border-radius: 8px;
+  padding: var(--editor-space-1);
+  gap: var(--editor-space-1);
+  border: 1px solid rgba(15, 23, 42, 0.05);
 }
 
 .togBtn {
   border: none;
   background: transparent;
-  padding: 6px 14px;
+  padding: var(--editor-space-2) var(--editor-space-4);
+  min-height: 40px;
+  box-sizing: border-box;
   font-size: 13px;
   font-weight: 500;
   color: #5c6370;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -64,19 +69,30 @@
 .openLink {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--editor-space-2);
   border: none;
   background: transparent;
   color: var(--lk-accent-blue);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  padding: 6px 2px;
+  padding: var(--editor-space-2) var(--editor-space-3);
+  margin: calc(var(--editor-space-1) * -1) calc(var(--editor-space-2) * -1);
+  border-radius: 8px;
   flex-shrink: 0;
+}
+
+.openLink:focus {
+  outline: none;
+}
+
+.openLink:focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
 }
 
 .openLink:hover {
   text-decoration: underline;
+  background: rgba(37, 99, 235, 0.06);
 }
 
 /* Оболочка: фон + круглешки привязаны к видимой области, не к прокручиваемому потоку */
@@ -86,11 +102,12 @@
   flex-direction: column;
   flex: 1;
   min-height: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid var(--lk-border);
   box-sizing: border-box;
   overflow: hidden;
   isolation: isolate;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .canvasScroll {
@@ -114,5 +131,5 @@
   box-sizing: border-box;
   width: 100%;
   min-height: min-content;
-  padding: 28px 24px 32px;
+  padding: var(--editor-space-6);
 }

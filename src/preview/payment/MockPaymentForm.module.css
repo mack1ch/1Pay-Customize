@@ -142,6 +142,392 @@
   max-width: 440px;
 }
 
+/* —— Одиночная карточная форма: макет Figma MIR BIN (node 1:3748) —— */
+.singleStack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.singleCardBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: default;
+  width: fit-content;
+}
+
+.singleCardBackChev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  opacity: 0.92;
+}
+
+.singleCardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.singleCardHead {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.singleCardHeadRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.singleCardHeadText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 0;
+  text-align: left;
+}
+
+.singleCardMerchant {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.singleCardAmount {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.02em;
+}
+
+.singleCardAmountNum {
+  font-weight: 700;
+}
+
+.singleCardAmountCur {
+  font-weight: 500;
+}
+
+.singleCardDesc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+}
+
+.singleCardCorner {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 27px;
+}
+
+.singleCardCorner .cornerLogo {
+  max-height: 27px;
+  max-width: 120px;
+}
+
+.singleCardCorner .cornerLogoEmpty {
+  min-height: 27px;
+}
+
+.singleCardCorner .oneP {
+  font-size: 22px;
+}
+
+.singleCardFields {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+}
+
+.singleCardField {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.singleCardLabel {
+  display: block;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.singleCardPan {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid;
+  font-variant-numeric: tabular-nums;
+}
+
+.singleCardPanDigits {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.singleCardPanInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: normal;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: inherit;
+}
+
+.singleCardMir {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.singleCardRow2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+}
+
+.singleCardCol {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.singleCardExpRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.singleCardExpCell {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border: 1px solid;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.singleCardExpInput {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: inherit;
+}
+
+.singleCardSlash {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.singleCardCvv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 16px;
+  border: 1px solid;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  font-variant-numeric: tabular-nums;
+}
+
+.singleCardCvvInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: inherit;
+}
+
+.singleCardQMark {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 16px;
+  font-size: 10.947px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.singleCardCta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+.singleCardPayBtn {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 42px;
+  margin: 0;
+  padding: 10px 24px;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  cursor: default;
+}
+
+.singleCardPayBtn:hover {
+  background: var(--btn-hover) !important;
+}
+
+.singleCardPayBtn:active {
+  background: var(--btn-active) !important;
+}
+
+.singleCardLegal {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.singleCardFooterRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 25.5px;
+}
+
+.singleCardFooterLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.singleCardLockWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 5.1px;
+  border-radius: 5.1px;
+  background: rgba(220, 233, 224, 0.3);
+}
+
+.singleCardLockSvg {
+  display: block;
+  width: 15.3px;
+  height: 15.3px;
+}
+
+.singleCardFooterRow span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.singleCardFooterLeft span {
+  white-space: normal;
+}
+
+@media (max-width: 400px) {
+  .singleCardRow2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+}
+
 .viewport.embedded .singleStack,
 .viewport.embedded .multiStack {
   max-width: none;
@@ -160,7 +546,7 @@
 }
 
 .multiViewport.viewportMobile {
-  max-width: 360px;
+  max-width: 354px;
 }
 
 /* «Открыть форму»: мультиформа 465px, даже если в редакторе был выбран Mobile */
@@ -170,6 +556,14 @@
 }
 
 .multiViewport .multiStack {
+  max-width: 465px;
+}
+
+.multiViewport.viewportMobile .multiStack {
+  max-width: 354px;
+}
+
+.multiViewport:not(.embedded).viewportMobile .multiStack {
   max-width: 465px;
 }
 
@@ -199,7 +593,7 @@
 /* В редакторе: узкий «телефон» по центру, вокруг — фон области предпросмотра */
 .viewport.embedded.multiViewport.viewportMobile .multiGradCanvas.embeddedGrad {
   width: 100%;
-  max-width: min(360px, calc(100% - 40px));
+  max-width: min(354px, calc(100% - 40px));
   margin-inline: auto;
   /* border-radius задаётся из --form-radius / inline (R) */
   box-sizing: border-box;
@@ -215,12 +609,24 @@
 .multiCardChain {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   width: 100%;
+}
+
+.multiCardChainDesktop {
+  gap: 12px;
+}
+
+.multiCardChainMobile {
+  gap: 14px;
 }
 
 .multiPanel {
   width: 100%;
+}
+
+/* Мультиформа: скругления задаются инлайном из theme.borderRadius; обрезка по радиусу — у панели */
+.multiViewport .multiPanel {
+  overflow: hidden;
 }
 
 .multiPadHeader {
@@ -234,14 +640,30 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+
+.multiPadQuickMobile {
+  padding: 16px 14px;
+}
+
+.multiPadQuickDesktop {
   padding: 24px;
 }
 
 .multiPadForm {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  min-width: 0;
+}
+
+.multiPadFormMobile {
+  padding: 16px 14px;
+  gap: 18px;
+}
+
+.multiPadFormDesktop {
   padding: 24px;
+  gap: 32px;
 }
 
 .multiHeaderInner {
@@ -263,7 +685,7 @@
   font-size: 26px;
   font-weight: 700;
   line-height: 31px;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .multiHeaderMeta {
@@ -277,14 +699,14 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .multiDesc {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
 }
 
 .multiCornerLogo {
@@ -299,11 +721,11 @@
   line-height: 1;
 }
 
-.multiBack {
+.multiBack,
+.multiBackCompact {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  gap: 4px;
   border: none;
   background: transparent;
   padding: 0;
@@ -312,14 +734,36 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
   cursor: default;
 }
 
-.multiBackChevron {
-  font-size: 16px;
-  line-height: 1;
-  color: #757575;
+.multiBack {
+  gap: 4px;
+}
+
+.multiBackCompact {
+  gap: 8px;
+}
+
+.multiBackChevronWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--pf-muted, #757575);
+}
+
+.multiBackChevronLg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.multiBackChevronSm {
+  display: block;
+  width: 5px;
+  height: 10px;
 }
 
 .multiSectionTitle {
@@ -327,7 +771,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .multiQuickCol {
@@ -368,6 +812,8 @@
   font-weight: 600;
   font-size: 15px;
   cursor: default;
+  /* СберPay: градиент по макету Figma (мультиформа) */
+  background: linear-gradient(90deg, #c4e538 0%, #12c256 52%, #00a896 100%);
 }
 
 .multiPayQuick:hover {
@@ -383,6 +829,7 @@
   flex-direction: column;
   gap: 14px;
   width: 100%;
+  min-width: 0;
 }
 
 .multiFieldsCol {
@@ -390,6 +837,7 @@
   flex-direction: column;
   gap: 18px;
   width: 100%;
+  min-width: 0;
 }
 
 .multiField {
@@ -398,22 +846,28 @@
   align-items: stretch;
   gap: 8px;
   width: 100%;
+  min-width: 0;
 }
 
 .multiLabel {
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
 }
 
+/* Единая высота «строк» полей мультиформы (номер, срок, CVV) */
 .multiInputRow {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
   min-height: 46px;
+  height: 46px;
+  min-width: 0;
+  max-width: 100%;
   border: none;
   box-sizing: border-box;
 }
@@ -422,34 +876,89 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
   font-variant-numeric: tabular-nums;
+}
+
+.multiInputGhost {
+  color: var(--pf-subtle, #adadad);
+}
+
+.multiExpiryLabel {
+  text-align: left;
+  width: 100%;
+}
+
+.multiMirBadge {
+  flex-shrink: 0;
+}
+
+.multiViewport.viewportMobile .multiMirBadge {
+  display: none;
+}
+
+.multiSbpBadge {
+  width: 22px;
+  height: 21px;
+  flex-shrink: 0;
+}
+
+.multiSbpWordmark {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17px;
+  color: #ffffff;
+  letter-spacing: 0.02em;
 }
 
 .multiRow2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 14px;
   width: 100%;
+  min-width: 0;
 }
 
 .multiExpCombined {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
-  padding: 16px;
-  min-height: 51px;
+  gap: 14px;
+  padding: 12px 16px;
+  min-height: 46px;
+  height: 46px;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border: none;
   box-sizing: border-box;
 }
 
+/* ММ / ГГ — фиксированная ширина, без растягивания на всю колонку */
+.multiExpCombined .multiDemoInput {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  text-align: center;
+}
+
+.multiExpCombined .multiInputText {
+  flex: 0 0 44px;
+  width: 44px;
+  min-width: 44px;
+  max-width: 44px;
+  text-align: center;
+}
+
 .multiExpSlash {
+  flex-shrink: 0;
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
 }
 
 .multiQMark {
@@ -464,7 +973,7 @@
   font-size: 10.9474px;
   font-weight: 500;
   line-height: 13px;
-  color: #adadad;
+  color: var(--pf-subtle, #adadad);
 }
 
 .multiCtaBlock {
@@ -486,6 +995,10 @@
   line-height: 17px;
   cursor: default;
   box-sizing: border-box;
+}
+
+.multiViewport.viewportMobile .multiSubmitBtn {
+  min-height: 51px;
 }
 
 .multiSubmitBtn:hover {
@@ -511,8 +1024,8 @@
   line-height: 14px;
 }
 
-.multiLegalMuted {
-  color: #757575;
+.multiLegalAccent {
+  font-weight: 600;
 }
 
 .multiHeaderFooter,
@@ -554,7 +1067,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 14px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
 }
 
 .quickCol {
@@ -658,15 +1171,13 @@
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: conic-gradient(
-    from 180deg,
-    #e53935,
-    #fbc02d,
-    #43a047,
-    #1e88e5,
-    #8e24aa,
-    #e53935
-  );
+  background: conic-gradient(from 180deg,
+      #e53935,
+      #fbc02d,
+      #43a047,
+      #1e88e5,
+      #8e24aa,
+      #e53935);
 }
 
 .payQuick {
@@ -682,6 +1193,7 @@
   justify-content: center;
   gap: 10px;
   cursor: default;
+  background: linear-gradient(90deg, #c4e538 0%, #12c256 52%, #00a896 100%);
 }
 
 .payQuick:hover {
@@ -798,6 +1310,99 @@
   background: var(--btn-active) !important;
 }
 
+.payBtnInteractive,
+.multiSubmitBtn.payBtnInteractive {
+  cursor: pointer;
+}
+
+.demoClickable {
+  cursor: pointer;
+}
+
+.demoInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  outline: none;
+}
+
+.demoInputMini {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  text-align: center;
+  outline: none;
+}
+
+.multiDemoInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: inherit;
+}
+
+/* Номер карты и CVV: поле на всю доступную ширину ряда */
+.multiInputRow .multiDemoInput {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.multiInputRow>span.multiInputText {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.sbpDemoBar {
+  padding: 12px 14px 14px;
+  box-sizing: border-box;
+}
+
+.sbpDemoBarDesktop {
+  padding: 0 24px 20px;
+  box-sizing: border-box;
+}
+
+.sbpDemoPayBtn {
+  width: 100%;
+  border: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  padding: 12px 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.sbpDemoPayBtn:hover {
+  background: var(--btn-hover) !important;
+}
+
+.sbpDemoPayBtn:active {
+  background: var(--btn-active) !important;
+}
+
 .legal {
   text-align: center;
   font-size: 12px;
@@ -823,6 +1428,7 @@
 
 /* СБП / SberPay — десктоп, QR (колонка 465px, фон #F0F0F0) */
 .sbpDesktopViewport {
+  position: relative;
   width: 100%;
   max-width: 465px;
   margin: 0 auto;
@@ -935,7 +1541,7 @@
   font-size: 26px;
   font-weight: 700;
   line-height: 31px;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .sbpDesktopMeta {
@@ -949,14 +1555,14 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .sbpDesktopDesc {
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #757575;
+  color: var(--pf-muted, #757575);
 }
 
 .sbpDesktopQrStack {
@@ -989,7 +1595,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
   text-align: center;
 }
 
@@ -998,7 +1604,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
-  color: #222222;
+  color: var(--pf-muted, #757575);
   text-align: center;
 }
 
@@ -1063,8 +1669,347 @@
   background: rgba(21, 21, 21, 0.1);
 }
 
+.sbpDesktopQrOpen {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sbpDesktopQrOpen:focus {
+  outline: none;
+}
+
+.sbpDesktopQrOpen:focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45);
+}
+
+/* —— СБП мобильный: макет Figma «Новый вид СБП с QR-кодом» (1636:3381) —— */
+.sbpNewStack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 353px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.sbpNewTopCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.sbpNewAmountRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.sbpNewHeaderBrand {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.sbpNewHeaderBrand .cornerLogo {
+  max-height: 28px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+.sbpNewHeaderBrand .cornerLogoEmpty {
+  min-width: 28px;
+  min-height: 26px;
+}
+
+.sbpNewHeaderBrand .oneP {
+  font-size: 26px;
+}
+
+.sbpNewAmountBig {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.sbpNewAmountCurrency {
+  font-weight: 500;
+}
+
+.sbpNewOrderMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+}
+
+.sbpNewMerchant {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.sbpNewDesc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.sbpNewMainCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sbpNewSearchRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.sbpNewSearch {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 45px;
+  padding: 7px 15px;
+  box-sizing: border-box;
+  color: var(--pf-subtle, #adadad);
+}
+
+.sbpNewSearch .sbpMobileSearchIcon {
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.sbpNewSearchPlaceholder {
+  font-size: 14.742px;
+  font-weight: 600;
+  line-height: 23.167px;
+  color: var(--pf-subtle, #adadad);
+}
+
+.sbpNewQrBtn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.sbpNewQrBtn:focus {
+  outline: none;
+}
+
+.sbpNewQrBtn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.45);
+}
+
+.sbpNewBankList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.sbpNewBankRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  padding: 12px 10px;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.sbpNewBankLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.sbpNewBankLogoSlot {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 41px;
+  height: 42px;
+  background: #ffffff;
+}
+
+.sbpNewBankName {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--pf-text, #222222);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sbpNewRowChevron {
+  flex-shrink: 0;
+}
+
+/* Модалка QR (макет Figma 1679:3446) */
+.sbpQrModalRoot {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.sbpQrModalBackdrop {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.sbpQrModalPanel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 366px;
+  padding: 32px;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 48px rgba(15, 23, 42, 0.18);
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+.sbpQrModalHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.sbpQrModalHeaderText {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.sbpQrModalAmount {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--pf-text, #222222);
+}
+
+.sbpQrModalAmountNum {
+  font-weight: 700;
+}
+
+.sbpQrModalAmountCur {
+  font-weight: 500;
+}
+
+.sbpQrModalMerchant {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--pf-text, #222222);
+}
+
+.sbpQrModalDesc {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--pf-muted, #757575);
+}
+
+.sbpQrModalClose {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.sbpQrModalClose:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.sbpQrModalClose:focus {
+  outline: none;
+}
+
+.sbpQrModalClose:focus-visible {
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+}
+
+.sbpQrModalQr {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* СБП — мобильный экран выбора банка (макет ~390px, фон #F0F0F0) */
 .sbpMobileViewport {
+  position: relative;
   width: 100%;
   max-width: 390px;
   margin: 0 auto;
@@ -1141,14 +2086,14 @@
 
 .sbpMobileSearchIcon {
   flex-shrink: 0;
-  color: #adadad;
+  color: var(--pf-subtle, #adadad);
 }
 
 .sbpMobileSearchPlaceholder {
   font-size: 14.7424px;
   font-weight: 600;
   line-height: 23px;
-  color: #adadad;
+  color: var(--pf-subtle, #adadad);
 }
 
 .sbpMobileList {
@@ -1195,7 +2140,6 @@
   justify-content: center;
   width: 41px;
   height: 42px;
-  border-radius: 9px;
   background: #ffffff;
 }
 
@@ -1221,7 +2165,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;
-  color: #222222;
+  color: var(--pf-text, #222222);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1236,19 +2180,176 @@
   font-size: 20px;
   font-weight: 300;
   line-height: 1;
-  color: #222222;
+  color: var(--pf-text, #222222);
 }
 
 .oneCard {
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Нативные стили кнопок (особенно WebKit) перекрывают border-radius */
 .payBtn,
+.singleCardPayBtn,
 .multiSbpBtn,
 .multiPayQuick,
 .multiSubmitBtn,
-.sbpMobileBankRow {
+.sbpMobileBankRow,
+.sbpNewBankRow,
+.sbpNewQrBtn,
+.sbpDesktopQrOpen,
+.sbpDemoPayBtn,
+.statusCta {
   appearance: none;
   -webkit-appearance: none;
+}
+
+/*
+ * Скругление CTA: --pay-btn-radius задаётся на корне превью (MockPaymentForm).
+ * overflow:hidden + radius в CSS стабильнее, чем только inline style на <button>.
+ */
+.payBtn,
+.singleCardPayBtn,
+.multiSbpBtn,
+.multiPayQuick,
+.multiSubmitBtn,
+.sbpDesktopQrOpen,
+.sbpDemoPayBtn,
+.statusCta {
+  border-radius: var(--pay-btn-radius, 10px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.payBtn::-moz-focus-inner,
+.singleCardPayBtn::-moz-focus-inner,
+.multiSbpBtn::-moz-focus-inner,
+.multiPayQuick::-moz-focus-inner,
+.multiSubmitBtn::-moz-focus-inner,
+.sbpDesktopQrOpen::-moz-focus-inner,
+.sbpDemoPayBtn::-moz-focus-inner,
+.statusCta::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* —— Экраны статусов —— */
+.statusViewport {
+  width: 100%;
+  min-height: 420px;
+}
+
+.statusGrad {
+  min-height: 480px;
+  border-radius: 12px;
+  padding: 16px 16px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.statusGrad.embeddedGrad {
+  flex: 1;
+  align-items: stretch;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  padding: 12px 12px 16px;
+  border-radius: 0;
+}
+
+.statusStack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  max-width: min(336px, calc(100% - 32px));
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.statusCard {
+  padding: 28px 20px 24px;
+}
+
+.statusInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.statusIconRing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.statusTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 300px;
+}
+
+.statusDesc {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 300px;
+}
+
+.statusDetails {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 8px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.statusRow span:first-child {
+  flex-shrink: 0;
+}
+
+.statusTx {
+  text-align: right;
+  word-break: break-all;
+  max-width: 55%;
+}
+
+.statusCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: min(336px, calc(100% - 32px));
+  margin-inline: auto;
+  min-height: 49px;
+  padding: 12px 20px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+  font-family: inherit;
 }

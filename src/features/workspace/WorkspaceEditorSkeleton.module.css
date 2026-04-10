@@ -3,7 +3,7 @@
   min-height: 0;
   display: grid;
   grid-template-columns: minmax(0, 11fr) minmax(0, 9fr);
-  gap: 24px;
+  gap: var(--editor-split-gap);
   align-items: stretch;
   min-width: 0;
 }
@@ -22,31 +22,32 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--editor-card-stack-gap);
   overflow-y: auto;
-  padding-right: 2px;
+  padding-right: var(--editor-space-2);
 }
 
 .card {
   background: #fff;
   border: 1px solid var(--lk-border);
-  border-radius: 8px;
-  padding: 22px 22px 24px;
+  border-radius: 10px;
+  padding: var(--editor-card-padding);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .cardTitle {
-  margin-bottom: 18px;
+  margin-bottom: var(--editor-space-2);
 }
 
 .cardLead {
-  margin: -10px 0 18px;
+  margin: 0 0 var(--editor-space-6);
 }
 
 .row2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px 24px;
-  margin-bottom: 20px;
+  gap: var(--editor-space-5) var(--editor-space-6);
+  margin-bottom: var(--editor-space-6);
   align-items: start;
 }
 
@@ -59,15 +60,15 @@
 .stack {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--editor-space-2);
   min-width: 0;
 }
 
 .stackGap {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-bottom: 20px;
+  gap: var(--editor-space-2);
+  margin-bottom: var(--editor-space-5);
 }
 
 .stackGap:last-of-type {
@@ -77,14 +78,14 @@
 .logoRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--editor-space-3);
 }
 
 .colorGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 24px;
-  row-gap: 18px;
+  column-gap: var(--editor-space-6);
+  row-gap: var(--editor-field-gap);
 }
 
 @media (max-width: 560px) {
@@ -96,14 +97,14 @@
 .colorCell {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--editor-space-2);
   min-width: 0;
 }
 
 .typoRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: var(--editor-space-6);
   align-items: start;
 }
 
@@ -143,8 +144,8 @@
 
 .actions {
   display: flex;
-  gap: 10px;
-  margin-top: 4px;
+  gap: var(--editor-space-3);
+  margin-top: var(--editor-space-2);
 }
 
 .right {
@@ -159,21 +160,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: var(--editor-space-4);
+  margin-bottom: var(--editor-space-4);
   flex-shrink: 0;
 }
 
 .previewHeadLeft {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: var(--editor-space-4);
   min-width: 0;
 }
 
 .toggle {
   display: flex;
-  gap: 2px;
+  gap: var(--editor-space-1);
 }
 
 .previewCanvas {
@@ -188,7 +189,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 28px 24px 32px;
+  padding: var(--editor-section-gap) var(--editor-space-6) var(--editor-space-7);
   box-sizing: border-box;
   overflow: auto;
 }

@@ -1,18 +1,37 @@
 import { createContext } from 'react';
 import type {
+  AppearanceMode,
+  AppearanceVariant,
+  CustomizationEditorTab,
   FieldErrors,
   FormCustomizationConfig,
   PaymentFormType,
-} from "../types/customization";
+  PaymentStatusKind,
+  PreviewContentScreen,
+  SbpQrCustomization,
+  StatusScreenCustomization,
+} from '../types/customization';
 import type { PreviewTheme } from './previewTheme';
 
 export interface CustomizationContextValue {
-  /** Какую форму сейчас редактируют (карта / СБП / мульти) */
   editingFormType: PaymentFormType;
   setEditingFormType: (t: PaymentFormType) => void;
-  /** Черновик и сохранённое состояние для выбранного типа */
+  /**
+   * Светлая или тёмная тема на устройстве: какой вариант редактируем и что показывает предпросмотр.
+   */
+  appearanceMode: AppearanceMode;
+  setAppearanceMode: (m: AppearanceMode) => void;
+  editorTab: CustomizationEditorTab;
+  setEditorTab: (t: CustomizationEditorTab) => void;
+  /** Какой статус редактируют на вкладке «Статусы»; предпросмотр берёт его оттуда. */
+  editingStatusKind: PaymentStatusKind;
+  setEditingStatusKind: (k: PaymentStatusKind) => void;
+  /** Синтез: форма или экран статуса — без отдельного селектора в превью. */
+  previewScreen: PreviewContentScreen;
+
   draft: FormCustomizationConfig;
   saved: FormCustomizationConfig;
+  draftVariant: AppearanceVariant;
   previewTheme: PreviewTheme;
   fieldErrors: FieldErrors;
   isDirty: boolean;
@@ -21,7 +40,15 @@ export interface CustomizationContextValue {
   isLoading: boolean;
   toast: string | null;
   setToast: (msg: string | null) => void;
+
   updateDraft: (patch: Partial<FormCustomizationConfig>) => void;
+  updateVariant: (patch: Partial<AppearanceVariant>) => void;
+  updateStatusCustomization: (
+    kind: PaymentStatusKind,
+    patch: Partial<StatusScreenCustomization>,
+  ) => void;
+  updateSbpCustomization: (patch: Partial<SbpQrCustomization>) => void;
+
   /** @deprecated Используйте setEditingFormType */
   setFormType: (t: PaymentFormType) => void;
   setLogo: (dataUrl: string | null) => void;

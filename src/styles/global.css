@@ -18,6 +18,25 @@
   --lk-success: #26ad50;
   --lk-radius-card: 8px;
   --font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /*
+   * Редактор кастомизации: единая шкала (кратно 8px), иерархия отступов.
+   * Поле → группа → карточка → колонка / превью.
+   */
+  --editor-space-1: 4px;
+  --editor-space-2: 8px;
+  --editor-space-3: 12px;
+  --editor-space-4: 16px;
+  --editor-space-5: 20px;
+  --editor-space-6: 24px;
+  --editor-space-7: 32px;
+  --editor-card-padding: 24px;
+  --editor-card-stack-gap: 24px;
+  --editor-field-gap: 16px;
+  --editor-section-gap: 28px;
+  --editor-split-gap: 28px;
+  --editor-label-to-control: 6px;
+  --editor-help-to-field: 8px;
 }
 
 *,

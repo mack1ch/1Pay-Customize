@@ -1,21 +1,34 @@
 import { useEffect, useState } from 'react';
 import { writePreviewTransfer } from '../domain/previewPayload';
 import { useCustomization } from '../state/useCustomization';
+import type { PreviewContentScreen } from '../types/customization';
 import { PageGradientBlobs } from './PageGradientBlobs';
 import { MockPaymentForm } from './payment/MockPaymentForm';
-import { readPreviewDevice, writePreviewDevice, type PreviewDevice } from './previewDevice';
+import {
+  readPreviewDevice,
+  writePreviewDevice,
+  type PreviewDevice,
+} from './previewDevice';
 import styles from './PreviewPanel.module.css';
 
 export function PreviewPanel() {
-  const { draft, previewTheme } = useCustomization();
+  const { draft, previewTheme, appearanceMode, previewScreen } =
+    useCustomization();
   const [device, setDevice] = useState<PreviewDevice>(() => readPreviewDevice());
+  const [demoScreen, setDemoScreen] = useState<PreviewContentScreen | null>(null);
 
   useEffect(() => {
     writePreviewDevice(device);
   }, [device]);
 
+  useEffect(() => {
+    setDemoScreen(null);
+  }, [previewScreen]);
+
+  const effectivePreviewScreen = demoScreen ?? previewScreen;
+
   const openForm = () => {
-    writePreviewTransfer(draft, device);
+    writePreviewTransfer(draft, device, appearanceMode, previewScreen);
     window.open(`${import.meta.env.BASE_URL}open-form`, '_blank', 'noopener,noreferrer');
   };
 
@@ -54,6 +67,7 @@ export function PreviewPanel() {
           </svg>
         </button>
       </div>
+
       <div
         className={styles.canvasShell}
         style={{ backgroundColor: previewTheme.effectiveBgColor }}
@@ -70,6 +84,10 @@ export function PreviewPanel() {
               config={draft}
               device={device}
               embedded
+              previewScreen={effectivePreviewScreen}
+              interactive
+              onDemoPay={() => setDemoScreen('success')}
+              onDemoNavigateToForm={() => setDemoScreen(null)}
             />
           </div>
         </div>

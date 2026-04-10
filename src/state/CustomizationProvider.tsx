@@ -1,15 +1,31 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
-import { createDefaultConfigsByType } from "../domain/defaults";
-import { clampFormBaseRadius } from "../domain/formRadiusModel";
-import { hasValidationErrors, validateConfig } from "../domain/validation";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
+import { createDefaultConfigsByType } from '../domain/defaults';
+import { clampFormBaseRadius } from '../domain/formRadiusModel';
+import { hasValidationErrors, validateConfig } from '../domain/validation';
 import {
   PAYMENT_FORM_TYPES,
+  type AppearanceMode,
+  type AppearanceVariant,
+  type CustomizationEditorTab,
   type FormCustomizationConfig,
   type FormConfigsByType,
   type PaymentFormType,
-} from "../types/customization";
-import { buildPreviewTheme } from "./previewTheme";
-import { CustomizationContext, type CustomizationContextValue } from "./customizationContext";
+  type PaymentStatusKind,
+  type PreviewContentScreen,
+  type SbpQrCustomization,
+  type StatusScreenCustomization,
+} from '../types/customization';
+import { buildPreviewTheme } from './previewTheme';
+import {
+  CustomizationContext,
+  type CustomizationContextValue,
+} from './customizationContext';
 
 function configsEqual(a: FormCustomizationConfig, b: FormCustomizationConfig): boolean {
   return JSON.stringify(a) === JSON.stringify(b);
@@ -25,7 +41,11 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
   const [savedByType, setSavedByType] = useState<FormConfigsByType>(defaults);
   const [draftByType, setDraftByType] = useState<FormConfigsByType>(defaults);
   const [editingFormType, setEditingFormType] =
-    useState<PaymentFormType>("multi");
+    useState<PaymentFormType>('multi');
+  const [appearanceMode, setAppearanceMode] = useState<AppearanceMode>('light');
+  const [editorTab, setEditorTab] = useState<CustomizationEditorTab>('brand');
+  const [editingStatusKind, setEditingStatusKind] =
+    useState<PaymentStatusKind>('success');
   const [isLoading, setIsLoading] = useState(true);
   const [toast, setToast] = useState<string | null>(null);
   const [logoError, setLogoError] = useState<string | null>(null);
@@ -46,6 +66,7 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
 
   const draft = draftByType[editingFormType];
   const saved = savedByType[editingFormType];
+  const draftVariant = draft.variants[appearanceMode];
 
   const fieldErrors = useMemo(() => validateConfig(draft), [draft]);
 
@@ -63,8 +84,13 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
   );
 
   const previewTheme = useMemo(
-    () => buildPreviewTheme(draft, saved),
-    [draft, saved],
+    () => buildPreviewTheme(draft, saved, appearanceMode),
+    [draft, saved, appearanceMode],
+  );
+
+  const previewScreen: PreviewContentScreen = useMemo(
+    () => (editorTab === 'statuses' ? editingStatusKind : 'form'),
+    [editorTab, editingStatusKind],
   );
 
   const isSaveEnabled = isDirty && !hasAnyErrors;
@@ -80,12 +106,88 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
           formType: editingFormType,
         };
         if (patch.borderRadius !== undefined) {
-          merged.borderRadius = clampFormBaseRadius(patch.borderRadius);
+          merged.borderRadius = clampFormBaseRadius(
+            patch.borderRadius as unknown,
+          );
+        }
+        if (patch.variants !== undefined) {
+          merged.variants = patch.variants;
         }
         return { ...prev, [editingFormType]: merged };
       });
     },
     [editingFormType],
+  );
+
+  const updateVariant = useCallback(
+    (patch: Partial<AppearanceVariant>) => {
+      setDraftByType((prev) => {
+        const cur = prev[editingFormType];
+        const v = cur.variants[appearanceMode];
+        const nextVariant: AppearanceVariant = { ...v, ...patch };
+        return {
+          ...prev,
+          [editingFormType]: {
+            ...cur,
+            variants: {
+              ...cur.variants,
+              [appearanceMode]: nextVariant,
+            },
+          },
+        };
+      });
+    },
+    [editingFormType, appearanceMode],
+  );
+
+  const updateStatusCustomization = useCallback(
+    (kind: PaymentStatusKind, patch: Partial<StatusScreenCustomization>) => {
+      setDraftByType((prev) => {
+        const cur = prev[editingFormType];
+        const v = cur.variants[appearanceMode];
+        const st = v.statuses[kind];
+        return {
+          ...prev,
+          [editingFormType]: {
+            ...cur,
+            variants: {
+              ...cur.variants,
+              [appearanceMode]: {
+                ...v,
+                statuses: {
+                  ...v.statuses,
+                  [kind]: { ...st, ...patch },
+                },
+              },
+            },
+          },
+        };
+      });
+    },
+    [editingFormType, appearanceMode],
+  );
+
+  const updateSbpCustomization = useCallback(
+    (patch: Partial<SbpQrCustomization>) => {
+      setDraftByType((prev) => {
+        const cur = prev[editingFormType];
+        const v = cur.variants[appearanceMode];
+        return {
+          ...prev,
+          [editingFormType]: {
+            ...cur,
+            variants: {
+              ...cur.variants,
+              [appearanceMode]: {
+                ...v,
+                sbp: { ...v.sbp, ...patch },
+              },
+            },
+          },
+        };
+      });
+    },
+    [editingFormType, appearanceMode],
   );
 
   const setFormType = useCallback((t: PaymentFormType) => {
@@ -106,7 +208,7 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
     if (hasAnyErrors) return;
     await new Promise((r) => setTimeout(r, 400));
     setSavedByType({ ...draftByType });
-    setToast("Настройки успешно сохранены и применены");
+    setToast('Настройки успешно сохранены и применены');
     window.setTimeout(() => setToast(null), 4000);
   }, [draftByType, hasAnyErrors]);
 
@@ -118,8 +220,16 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
   const value: CustomizationContextValue = {
     editingFormType,
     setEditingFormType,
+    appearanceMode,
+    setAppearanceMode,
+    editorTab,
+    setEditorTab,
+    editingStatusKind,
+    setEditingStatusKind,
+    previewScreen,
     draft,
     saved,
+    draftVariant,
     previewTheme,
     fieldErrors,
     isDirty,
@@ -129,6 +239,9 @@ export function CustomizationProvider({ children }: { children: ReactNode }) {
     toast,
     setToast,
     updateDraft,
+    updateVariant,
+    updateStatusCustomization,
+    updateSbpCustomization,
     setFormType,
     setLogo,
     setLogoError,

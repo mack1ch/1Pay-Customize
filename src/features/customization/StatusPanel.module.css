@@ -1,0 +1,54 @@
+.statusKindRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--editor-space-2);
+  margin-bottom: var(--editor-space-6);
+}
+
+.kindBtn {
+  border: 1px solid var(--lk-border);
+  background: #f8fafc;
+  padding: 9px 14px;
+  min-height: 38px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 500;
+  color: #475569;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.kindBtn:hover {
+  background: #f1f5f9;
+}
+
+.kindBtnActive {
+  background: var(--lk-accent-blue);
+  border-color: var(--lk-accent-blue);
+  color: #fff;
+}
+
+.fieldBlock {
+  margin-bottom: var(--editor-field-gap);
+}
+
+.textArea {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--lk-border);
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #1a1a1a;
+  background: #fff;
+  resize: vertical;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.textArea:focus {
+  outline: none;
+  border-color: var(--lk-accent-blue);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+}
